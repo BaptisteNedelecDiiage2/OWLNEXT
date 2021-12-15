@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OWLNEXT.Business.Contract\OWLNEXT.Business.Contract.csproj" />
+    <ProjectReference Include="..\OWLNEXT.Repository.Contracts\OWLNEXT.Repository.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

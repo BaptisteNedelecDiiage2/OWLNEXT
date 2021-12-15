@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OWLNEXT.Business.Contract\OWLNEXT.Business.Contract.csproj" />
+    <ProjectReference Include="..\OWLNEXT.Business\OWLNEXT.Business.csproj" />
+    <ProjectReference Include="..\OWLNEXT.Repository\OWLNEXT.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
