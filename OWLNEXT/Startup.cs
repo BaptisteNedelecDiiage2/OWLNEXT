@@ -11,6 +11,7 @@ using OWLNEXT.Business;
 using OWLNEXT.Business.Contract;
 using OWLNEXT.Repository;
 using OWLNEXT.Repository.Contracts;
+using OWLNEXT.Workers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,10 +37,12 @@ namespace OWLNEXT
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OWLNEXT", Version = "v1" });
             });
-            services.AddScoped<IMoneyService, MoneyService>();
-            services.AddScoped<IRatePairsService, RatePairsService>();
-            services.AddScoped<IMoneyRepository, MoneyRepository>();
-            services.AddScoped<IRatePairsRepository, RatePairsRepository>();
+            services.AddTransient<IMoneyService, MoneyService>();
+            services.AddTransient<IRatePairsService, RatePairsService>();
+            services.AddTransient<IMoneyRepository, MoneyRepository>();
+            services.AddTransient<IRatePairsRepository, RatePairsRepository>();
+            services.AddHttpClient();
+            services.AddHostedService<RatePairWorker>();
             services.AddControllersWithViews();
         }
 

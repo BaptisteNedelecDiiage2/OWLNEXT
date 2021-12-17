@@ -11,5 +11,6 @@ namespace OWLNEXT.Business.Contract
     {
         public Task<List<RatePairs>> RateMoney(List<string> moneypairs);
         public Dictionary<string, double[]> GetRatePairsMinAndMaxDependingOnTheDate(List<string> moneypairs);
+        public Task SaveMoneyRateAsync();
     }
 }

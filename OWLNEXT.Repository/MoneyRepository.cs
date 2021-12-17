@@ -12,15 +12,20 @@ namespace OWLNEXT.Repository
 {
     public class MoneyRepository : IMoneyRepository
     {
-        private readonly string _urlApi = "https://api.ibanfirst.com/PublicAPI/Cross";
+        private const string _urlApi = "https://api.ibanfirst.com/PublicAPI/Cross";
+        private readonly HttpClient _httpClient;
+
+        public MoneyRepository(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient();
+        }
+
         public async Task<List<string>> ListOfMoney()
         {
-            using (HttpClient client = new HttpClient(new HttpClientHandler()))
-            {
-                HttpResponseMessage response = await client.GetAsync(_urlApi);
-                Cross objectCross =  JsonConvert.DeserializeObject<Cross>(await response.Content.ReadAsStringAsync());
-                return objectCross.CrossList.Select(y => y.Instrument).ToList();
-            }
+            HttpResponseMessage response = await _httpClient.GetAsync(_urlApi);
+            Cross objectCross = JsonConvert.DeserializeObject<Cross>(await response.Content.ReadAsStringAsync());
+            return objectCross.CrossList.Select(y => y.Instrument).ToList();
+
         }
     }
 }

@@ -10,15 +10,16 @@ namespace OWLNEXT.Business
 {
     public class MoneyService : IMoneyService
     {
-        private readonly IMoneyRepository _moneymoneyRepository;
+        private readonly IMoneyRepository _moneyRepository;
+
         public MoneyService( IMoneyRepository moneyRepository)
         {
-            _moneymoneyRepository = moneyRepository;
+            _moneyRepository = moneyRepository;
         }
 
         public Task<List<string>> ListOfMoney()
         {
-            return _moneymoneyRepository.ListOfMoney();
+            return _moneyRepository.ListOfMoney();
         }
     }
 }

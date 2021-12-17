@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OWLNEXT.Business.Contract\OWLNEXT.Business.Contract.csproj" />
     <ProjectReference Include="..\OWLNEXT.Repository.Contracts\OWLNEXT.Repository.Contracts.csproj" />
   </ItemGroup>

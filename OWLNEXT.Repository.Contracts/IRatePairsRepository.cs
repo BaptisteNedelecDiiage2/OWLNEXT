@@ -9,7 +9,8 @@ namespace OWLNEXT.Repository.Contracts
 {
     public interface IRatePairsRepository
     {
-        public Task<List<RatePairs>> RateMoney(List<string> moneypairs);
+        public Task<List<RatePairs>> GateMoneyRateAsync(List<string> moneypairs);
         public Dictionary<string, double[]> GetRatePairsMinAndMaxDependingOnTheDate(List<string> moneypairs);
+        public Task SaveMoneyRateAsync(List<RatePairs> ratePairsSave);
     }
 }
